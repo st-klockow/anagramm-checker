@@ -50,7 +50,7 @@ const AnagramChecker = () => {
   });
   const Button = styled("button")({
     padding: "5px 10px",
-  })
+  });
 
   return (
     <Container>
@@ -73,11 +73,14 @@ const AnagramChecker = () => {
       </Button>
 
       {showResult ? (
-        anagram ? (
-          <p>es handelt sich um Anagrame</p>
-        ) : (
-          <p>es handelt sich nicht um Anagrame</p>
-        )
+        <p>
+          {firstWord.current?.value} und {secondWord.current?.value} sind&nbsp;
+          {anagram ? (
+            <>Anagrame</>
+          ) : (
+            <>keine Anagrame</>
+          )}
+        </p>
       ) : null}
     </Container>
   );
