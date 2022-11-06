@@ -1,4 +1,5 @@
 import { useState, useRef, RefObject } from "react";
+import { styled } from "@mui/material";
 
 const AnagramChecker = () => {
   const firstWord = useRef<HTMLInputElement>(null);
@@ -38,25 +39,38 @@ const AnagramChecker = () => {
     setShowResult(true);
   };
 
+  const Container = styled("section")({
+    padding: 20,
+    fontFamily: "sans-serif",
+  });
+
+  const Input = styled("input")({
+    padding: 5,
+    marginRight: 5,
+  });
+  const Button = styled("button")({
+    padding: "5px 10px",
+  })
+
   return (
-    <div>
+    <Container>
       <h1>Anagram-Checker</h1>
       <p>
         Wählen Sie zwei Worte und schauen Sie ob es sich um Anagrame handelt.
       </p>
-      <input
+      <Input
         placeholder="erstes Wort"
         ref={firstWord}
         aria-label="first-word"
       />
-      <input
+      <Input
         placeholder="zweites Wort"
         ref={secondWord}
         aria-label="second-word"
       />
-      <button onClick={isAnagram} aria-label="submit-button">
+      <Button onClick={isAnagram} aria-label="submit-button">
         testen
-      </button>
+      </Button>
 
       {showResult ? (
         anagram ? (
@@ -65,7 +79,7 @@ const AnagramChecker = () => {
           <p>es handelt sich nicht um Anagrame</p>
         )
       ) : null}
-    </div>
+    </Container>
   );
 };
 export default AnagramChecker;
