@@ -44,21 +44,27 @@ const AnagramChecker = () => {
       <p>
         Wählen Sie zwei Worte und schauen Sie ob es sich um Anagrame handelt.
       </p>
-      <input placeholder="erstes Wort" ref={firstWord} />
-      <input placeholder="zweites Wort" ref={secondWord} />
-      <button onClick={isAnagram}>
+      <input
+        placeholder="erstes Wort"
+        ref={firstWord}
+        aria-label="first-word"
+      />
+      <input
+        placeholder="zweites Wort"
+        ref={secondWord}
+        aria-label="second-word"
+      />
+      <button onClick={isAnagram} aria-label="submit-button">
         testen
       </button>
 
-      {
-        showResult ? (
-          anagram ? (
-            <p>es handelt sich um Anagrame</p>
-          ) : (
-            <p>es handelt sich nicht um Anagrame</p>
-          )
-        ) : null
-      }
+      {showResult ? (
+        anagram ? (
+          <p>es handelt sich um Anagrame</p>
+        ) : (
+          <p>es handelt sich nicht um Anagrame</p>
+        )
+      ) : null}
     </div>
   );
 };
